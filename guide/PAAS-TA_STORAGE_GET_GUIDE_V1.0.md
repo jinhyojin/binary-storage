@@ -78,6 +78,7 @@ $ ll /var/cache/apt/archives/
 $ find / -name *.whl 
 $ ll /usr/share/python-wheels/
 ```
+<br/>
 
 ### 참고 : deb files 상호 의존 패키지 에러 없이 설치하기 
 > deb_install_script.sh 를 생성하여 일괄 설치 파일 만들어 실행

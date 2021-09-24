@@ -21,21 +21,21 @@
 + deb files install : make sh file (deb_install_script.sh)
 
 ```
-<br>
+<br/>
 
 > service
-```
+```diff
 - systemctl stop/start keystone
 + systemctl stop/start apache2
 ```
-<br>
+<br/>
 
 > keystone cli
 ```diff
 - bootstrap-admin-url http://localhost:35357/v3/
 + bootstrap-admin-url http://localhost:5000/v3/  #bootstrap-public / admin 통합 (default port 5000) 
 ```
-<br>
+<br/>
 
 > keystone.conf (신규 keystone.conf 파일로 교체하는것을 추천)
 ```diff
@@ -47,7 +47,7 @@
 - #provider = uuid
 + provider = fernet
 ```
-<br>
+<br/>
 
 > keystone client properties
 ```diff
@@ -57,7 +57,7 @@
 - swift.authUrl: http://<ip>:<port>/v2.0/tokens
 + swift.authUrl: http://<ip>:<port>/v3/auth/tokens
 ```
-<br>
+<br/>
 
 
 ### 02.binary-storage JOB 세부 변경 사항 ([branche:bionic](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/commits/bionic))
