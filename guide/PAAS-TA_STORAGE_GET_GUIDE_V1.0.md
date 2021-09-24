@@ -13,7 +13,7 @@ mariadb-10.5.8
 
 ### 01.전제조건
 > identity service를 설치 및 구성하기 전에 데이터베이스 생성
-```console
+```bash
 $ mysql -uroot
 
 MariaDB [(none)]> CREATE DATABASE keystone;
@@ -21,8 +21,9 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' I
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';
 ```
 <br/>
+
 > python3 alternatives 설정 (python3 를 python 명령으로 사용하기 위함)
-```console
+```bash
 $ sudo apt-get update
 $ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 100 --skip-auto
 $ sudo apt-get install -y python3-pip
@@ -32,7 +33,7 @@ $ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 100 --skip-a
 
 ### 02.install binary-storage 
 > install dependencies & components
-```console
+```bash
 $ sudo apt-get update
 $ sudo apt-get install -y curl gcc memcached rsync sqlite3 xfsprogs \
                         git-core libffi-dev python3-setuptools \
@@ -45,21 +46,24 @@ $ sudo apt-get install -y python3-coverage python3-dev python3-nose \
 $ sudo apt-get install -y python3-swiftclient python3-pymysql python3-openstackclient
 ```
 <br/>
+
 > install keystone (13.0.4는 db conn 버그가 있으므로 stein 으로 변경하여 15.0.1을 설치)
-```console
+```bash
 $ add-apt-repository cloud-archive:stein  
 $ sudo apt-get install keystone
 ```
 <br/>
+
 > install swift-all-in-one (whl 파일을 다운로드 받기위해 사용)
-```console
+```bash
 $ mkdir -p /var/vcap/packages/swift-all-in-one/
 $ git clone https://github.com/openstack/swift.git -b <버전>
 $ pip install -r /var/vcap/packages/swift-all-in-one/swift/requirements.txt
 ```
 <br/>
+
 > CCE 조치를 위한 whl 파일들은 직접 실행 및 다운로드 해야함
-```console
+```bash
 $ pip install PyNaCl
 $ pip install PyMySQL[ed25519]
 ```
@@ -67,7 +71,7 @@ $ pip install PyMySQL[ed25519]
 
 ### 03.get files deb & whl
 > apt-get 명령어로 설치한 파일 위치 검색 / pip install 명령어로 설치한 파일 위치 검색
-```console
+```bash
 $ find / -name *.deb 
 $ ll /var/cache/apt/archives/
 
@@ -78,7 +82,7 @@ $ ll /usr/share/python-wheels/
 ### 참고 : deb files 상호 의존 패키지 에러 없이 설치하기 
 > deb_install_script.sh 를 생성하여 일괄 설치 파일 만들어 실행
 <br/> 설치할 deb file들은 /var/vcap/packages/swift-all-in-one/ubuntu-bionic-files/deb/ 에 있다고 가정
-```console
+```bash
 $ cd /var/vcap/packages/swift-all-in-one/ubuntu-bionic-files/deb/
 $ echo 'dpkg -i \' >> deb_install_script.sh 
 $ find /var/vcap/packages/swift-all-in-one/ubuntu-bionic-files/deb/ -name '*.deb' -exec basename {}' \' \; >> deb_install_script.sh
