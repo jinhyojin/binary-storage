@@ -2,7 +2,7 @@
 - 본 문서는 [PAAS-TA-PORTAL-API-RELEASE](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE)의 [binary_storage](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/tree/master/jobs/binary_storage) job 에 대한 가이드를 제공합니다.
 - 본 문서는 PaaS-TA Service 를 마이그레이션 하기 위한 용도이며 다른 서비스의 경우 가이드에서 제공하는 구성과 다를 수 있습니다. .
 
-## 01.binary-storage 구성 및 명령어 변경 사항 (xenial -> bionic)
+### 01.binary-storage 구성 및 명령어 변경 사항 (xenial -> bionic)
 > package
 ```diff
 - python-2.7
@@ -60,6 +60,6 @@
 <br>
 
 
-## 02.binary-storage JOB 세부 변경 사항 ([branche:bionic](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/commits/bionic))
+### 02.binary-storage JOB 세부 변경 사항 ([branche:bionic](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/commits/bionic))
 - [update to use ubuntu-bionic stemcells](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/commit/26724b88a676917d8c6465e5b0844eed19787a16)
 

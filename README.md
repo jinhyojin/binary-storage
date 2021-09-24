@@ -1,6 +1,6 @@
 # binary-storage 구성 가이드
 - How to get binary-storage (paasta-portal-api)
-  - [get binary-storage debian package](./guide/PAAS-TA_STORAGE_CONFIGURE_GUIDE_V1.0.md)  
+  - [get binary-storage debian package](./guide/PAAS-TA_STORAGE_GET_GUIDE_V1.0.md)  
 - migration binary-storage (paasta-service)
   - [xenial -> bionic](./guide/PAAS-TA_STORAGE_MIGRATION_GUIDE_V1.0.md)  
 
