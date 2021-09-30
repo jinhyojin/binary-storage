@@ -1,25 +1,22 @@
-# get migration binary-storage
+# migration binary-storage
 - 본 문서는 [PAAS-TA-PORTAL-API-RELEASE](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE)의 [binary_storage](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/tree/master/jobs/binary_storage) job 에 대한 가이드를 제공합니다.
 - 본 문서는 PaaS-TA Service 를 마이그레이션 하기 위한 용도이며 다른 서비스의 경우 가이드에서 제공하는 구성과 다를 수 있습니다. .
 
 ### 01.binary-storage 구성 및 명령어 변경 사항 (xenial -> bionic)
-> package
+> package ([portal-api-release-src download](https://nextcloud.paas-ta.org/index.php/s/Yp7JEeDax9gy4yk/download))
 ```diff
-- python-2.7
-+ python-3.6
+- python-2.7.8
++ python-3.6.9
 
 - swift-all-in-one-2.23.2-PaaS-TA
-+ swift-all-in-one-2.23.2-PaaS-TA-v2   #ubuntu-bionic 전용 deb / whl 파일 추가 
++ swift-2.23.2
++ swift-2.23.2-bionic-dependencies.tar.gz
 
 - keystone-9.3.0
 + keystone-15.0.1
 
 - wsgi (python : port 5000, 35357)
 + wsgi (apache2 : port 5000)
-
-- deb files install : foreach ....
-+ deb files install : make sh file (deb_install_script.sh)
-
 ```
 <br/>
 
@@ -109,5 +106,16 @@ $ curl -X POST http://<binary_storage.ip>:<binary_storage.auth_port>/v3/auth/tok
     ....
   }' -H "Content-Type: application/json"
 ```
+<br/>
 
+> swift file upload / download test
+```bash
+$ swift --version
+python-swiftclient 3.7.0
 
+$ openstack container create <container_name>
+$ swift upload <container_name> <file_name>
+$ openstack object list <container_name>
+$ swift download <container_name> <file_name>
+```
+<br/>
