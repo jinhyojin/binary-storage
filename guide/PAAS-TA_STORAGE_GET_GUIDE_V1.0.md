@@ -4,8 +4,9 @@
 
 ### 00.binary-storage package
 ```
-python-3.6
-swift-all-in-one-2.23.2-PaaS-TA-v2
+python-3.6.9
+swift-2.23.2
+swift-2.23.2-bionic-dependencies
 keystone-15.0.1
 mariadb-10.5.8
 ```

@@ -10,7 +10,7 @@
 
 - swift-all-in-one-2.23.2-PaaS-TA
 + swift-2.23.2
-+ swift-2.23.2-bionic-dependencies.tar.gz
++ swift-2.23.2-bionic-dependencies
 
 - keystone-9.3.0
 + keystone-15.0.1
@@ -119,3 +119,7 @@ $ openstack object list <container_name>
 $ swift download <container_name> <file_name>
 ```
 <br/>
+
+### 참고 자료
+swift: [https://docs.openstack.org/swift](https://docs.openstack.org/swift/latest/development_saio.html)<br/>
+keystone: [https://docs.openstack.org/keystone](https://docs.openstack.org/keystone/latest/install/keystone-install-ubuntu.html)<br/>
