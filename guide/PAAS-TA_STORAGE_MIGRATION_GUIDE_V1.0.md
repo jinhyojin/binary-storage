@@ -34,7 +34,7 @@
 ```
 <br/>
 
-> keystone.conf (신규 keystone.conf 파일로 교체하는것을 추천)
+> keystone.conf (신규 keystone.conf 파일로 교체하는것을 추천) [view keystone.conf](https://github.com/PaaS-TA/PAAS-TA-PORTAL-API-RELEASE/commit/3b4b7a89b35c4494d65bf137b931b08738955bb7#diff-c5405f0de76f1d2ee55dc0152fc5726e63d49d00118c4ebdac2b7998df68716c)
 ```diff
   [database]
 - connection = mysql://<id>:<password>@<ip>:<port>/keystone
